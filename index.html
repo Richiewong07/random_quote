@@ -6,14 +6,41 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script src="index.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+    <script>
+      $(document).ready(function() {
+
+        function getQuote() {
+          var quotes = ["Hello World!", "Hello Sea!", "Hello Sky!"];
+          var author = ["-Author 1", "-Author 2", "-Author 3"];
+
+
+          var randomNum = Math.floor((Math.random() * quotes.length));
+          var randomQuote = quotes[randomNum];
+          var randomAuthor = author[randomNum];
+
+          $(".quote").text(randomQuote);
+          $(".author").text(randomAuthor);
+        }
+
+        $(".btn").on("click", function() {
+          getQuote();
+        });
+      });
+    </script>
+
   </head>
   <body>
+
 
     <div class="container-fluid text-center">
       <h1>Random Quote Generator</h1>
@@ -21,9 +48,10 @@
       <img src = "https://cdn.dribbble.com/users/30068/screenshots/1805572/testify-logo_1x.png"/>
       <br />
       <button class="btn btn-default" type="submit">New Quote</button>
-      <div class = "quotes">
-        <span class="quote"></span>
-        <span class="author"></span>
+      <br />
+      <div class="quotes">
+        <span class="quote">Hello, World!</span>
+        <span class="author">-The World</span>
       </div>
     </div>
 
