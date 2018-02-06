@@ -32,8 +32,12 @@
           $(".author").text(randomAuthor);
         }
 
-        $(".btn").on("click", function() {
+        $("#newQuote").on("click", function() {
           getQuote();
+        });
+
+        $("#tweet").on("click", function() {
+          window.open("https://twitter.com/intent/tweet");
         });
       });
     </script>
@@ -44,14 +48,15 @@
 
     <div class="container-fluid text-center">
       <h1>Random Quote Generator</h1>
-      <p>Some of my favorite gaming quotes of all time!</p>
+      <p>Some of my favorite quotes of all time!</p>
       <img src = "https://cdn.dribbble.com/users/30068/screenshots/1805572/testify-logo_1x.png"/>
       <br />
-      <button class="btn btn-default" type="submit">New Quote</button>
+      <button class="btn btn-default" type="submit" id="newQuote">New Quote</button>
+      <a href = "#" class="btn btn-default" id="tweet">Tweet Out</a>
       <br />
       <div class="quotes">
         <span class="quote">Hello, World!</span>
-        <span class="author">-The World</span>
+        <span class="author">- Author</span>
       </div>
     </div>
 
