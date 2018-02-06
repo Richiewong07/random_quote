@@ -6,9 +6,10 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="style.css" rel="stylesheet" type="text/css">
+
     <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+    <link href="style.css" rel="stylesheet" type="text/css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -21,18 +22,27 @@
         var randomQuote;
         var randomNum;
         var author;
-        getQuote();
+        // getQuote();
+        // function getQuote() {
+        //   var quotes = ["Hello World!", "Hello Sea!", "Hello Sky!"];
+        //   var author1 = ["-Author 1", "-Author 2", "-Author 3"];
+        //
+        //
+        //   randomNum = Math.floor((Math.random() * quotes.length));
+        //   randomQuote = quotes[randomNum];
+        //   author = author1[randomNum];
+        //
+        //   $(".quote").text(randomQuote);
+        //   $(".author").text(author);
+        // }
+
         function getQuote() {
-          var quotes = ["Hello World!", "Hello Sea!", "Hello Sky!"];
-          var author1 = ["-Author 1", "-Author 2", "-Author 3"];
+          var url = "http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?";
 
-
-          randomNum = Math.floor((Math.random() * quotes.length));
-          randomQuote = quotes[randomNum];
-          author = author1[randomNum];
-
-          $(".quote").text(randomQuote);
-          $(".author").text(author);
+          $.getJSON(url, function(data) {
+            $(".quote").html('"' + data.quoteText + '"');
+            $(".author").html("-" + data.quoteAuthor);
+          });
         }
 
 
@@ -54,8 +64,8 @@
 
     <div class="container-fluid text-center">
       <h1>Random Quote Generator</h1>
-      <p>Some of my favorite quotes of all time!</p>
-      <img src = "https://cdn.dribbble.com/users/30068/screenshots/1805572/testify-logo_1x.png"/>
+      <!-- <p>Some of my favorite quotes of all time!</p> -->
+      <img src = "http://1.bp.blogspot.com/-sMzhyhXtvYg/TvnEDOTbUeI/AAAAAAAAFUg/livpdNRl_ME/s1600/Quotation+Marks.gif"/>
       <br />
       <button class="btn btn-default" type="submit" id="newQuote">New Quote</button>
       <a href = "#" class="btn btn-default" id="tweet">Tweet Out</a>
